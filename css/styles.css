@@ -8,28 +8,26 @@
 }
 
 .calendar__item {
-    box-sizing: border-box;
     width: 150px;
     height: 150px;
+    box-sizing: border-box;
     cursor: pointer;
     position: relative;
 }
+
 
 .calendar__item:hover {
     background-color: #f5f5f5;
 }
 
+.calendar_item__container {
+    width: 150px;
+    height: 130px;
+    overflow: hidden;
+}
+
 .calendar__item-active {
     background-color: #eee;
-}
-
-.calendar_item__current_date {
-}
-
-.calendar_item__note {
-    width: 130px;
-    height: 100px;
-    overflow: hidden;
 }
 
 .calendar_item__note_title,
@@ -39,7 +37,7 @@
 
 .calendar_item__form {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 0;
     display: none;
 }
@@ -54,4 +52,5 @@
     top: 5px;
     right: 5px;
     cursor: pointer;
+    z-index: 5;
 }

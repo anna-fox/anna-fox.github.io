@@ -28,10 +28,10 @@
     </div>
 </div>
 <script type="text/template" class="j-day_template">
+    <% if (obj.title !== undefined || obj.content !== undefined) { %>
+    <span class="calendar_item__delete glyphicon glyphicon-remove j-clear_item"></span>
+    <% } %>
     <div class="calendar_item__container">
-        <% if (obj.title !== undefined || obj.content !== undefined) { %>
-        <span class="calendar_item__delete glyphicon glyphicon-remove j-clear_item"></span>
-        <% } %>
         <h3 class="calendar_item__current_date"><%= date %></h3>
         <div class="calendar_item__note">
             <% if (obj.title !== undefined) {%>
@@ -41,23 +41,22 @@
             <p class="calendar_item__note_content text-muted"><%= content %></p>
             <% } %>
         </div>
-
-        <form class="well well-sm calendar_item__form j-calendar_item__form">
-            <div class="form-group">
-                <label for="title">
-                    Заголовок заметки
-                    <input type="text" name="title" value="<%= obj.title || '' %>"/>
-                </label>
-            </div>
-            <div class="form-group">
-                <label for="content">
-                    Текст заметки
-                    <textarea name="content" cols="19" rows="3" value="<%= obj.content || '' %>"></textarea>
-                </label>
-            </div>
-            <button class="btn btn btn-success">Готово</button>
-        </form>
     </div>
+    <form class="well well-sm calendar_item__form j-calendar_item__form">
+        <div class="form-group">
+            <label for="title">
+                Заголовок заметки
+                <input class="form-control" type="text" name="title" value="<%= obj.title || '' %>"/>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="content">
+                Текст заметки
+                <textarea class="form-control" name="content" cols="19" rows="3"><%= obj.content || '' %></textarea>
+            </label>
+        </div>
+        <button class="btn btn btn-success">Готово</button>
+    </form>
 </script>
 <script type="text/template" class="j-navigation_template">
     <h2><%= month%>, <%= year %></h2>
