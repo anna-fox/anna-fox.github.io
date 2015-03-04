@@ -119,13 +119,13 @@ $(function(){
 
         events: {
             'click': '_onClickItem',
-            'submit .j-calendar_item__form': '_onFormSubmit',
+            'submit .j-calendar_item__form': '_onSubmitForm',
             'click .j-clear_item': '_onClickClearItem'
         },
 
         initialize: function(parameters){
             this.$parentView = parameters.$parentView;
-            this.model.on('change', this._onModelChange, this);
+            this.model.on('change', this._onChangeModel, this);
         },
 
         render: function(){
@@ -138,7 +138,7 @@ $(function(){
             this.$el.addClass('calendar__item-active');
         },
 
-        _onFormSubmit: function(e){
+        _onSubmitForm: function(e){
             e.preventDefault();
             var formData = $(e.currentTarget).serializeArray(),
                 formParams = {};
@@ -157,13 +157,12 @@ $(function(){
             })
         },
 
-        _onModelChange: function(e){
+        _onChangeModel: function(e){
             this.render();
         }
     });
 
     var CalendarBodyView = Backbone.View.extend({
-
         initialize: function(parameters){
             this.$parentView = parameters.$parentView;
         },
@@ -230,7 +229,7 @@ $(function(){
         initialize: function() {
             this.$navigation = this.$('.j-calendar_navigation');
             this.$calendarBody = this.$('.j-calendar_body');
-            this.model.on('change:date', this._onModelChange, this);
+            this.model.on('change:date', this._onChangeModel, this);
             return this;
         },
 
@@ -266,7 +265,7 @@ $(function(){
             this.model.updateCalendarData(direction);
         },
 
-        _onModelChange: function(){
+        _onChangeModel: function(){
             this.render()
         }
     });
