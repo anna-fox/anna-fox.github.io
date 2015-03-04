@@ -133,6 +133,11 @@ $(function(){
             return this;
         },
 
+        clear: function(){
+            this.model.off();
+            this.$el.remove();
+        },
+
         _onClickItem: function(){
             this.$parentView.find('.calendar__item-active').removeClass('calendar__item-active');
             this.$el.addClass('calendar__item-active');
@@ -195,6 +200,12 @@ $(function(){
             return this;
         },
 
+        clear: function(){
+            this.collection.off();
+            this.$el.off();
+            this.$el.clear();
+        },
+
         _getEmptyDays: function(side) {
             var emptyDays = [],
                 count = 0,
@@ -239,6 +250,13 @@ $(function(){
             return this;
         },
 
+        clear: function(){
+            this.model.off();
+            this.$el.off();
+            this.$navigation.empty();
+            this.$calendarBody.empty();
+        },
+
         events: {
             'click .j-navigation': '_onClickNavigation'
         },
@@ -253,6 +271,9 @@ $(function(){
         },
 
         _renderCalendarBody: function(){
+            if (this._calendarBodyView){
+                this._calendarBodyView.clear();
+            }
             this._calendarBodyView = new CalendarBodyView({
                 collection: this.model.get('calendarDays'),
                 el: this.$calendarBody,
