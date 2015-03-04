@@ -37,14 +37,39 @@
 
 .calendar_item__form {
     position: absolute;
-    top: 40%;
     left: 0;
+    top: 40%;
     display: none;
 }
 
 .calendar__item-active .calendar_item__form {
     display: block;
     z-index: 1;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+}
+
+@-webkit-keyframes appearance {
+    from {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+    }
+    to {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+}
+@keyframes appearance {
+    from {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+    }
+    to {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
 }
 
 .calendar_item__delete {
