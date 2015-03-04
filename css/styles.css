@@ -37,14 +37,6 @@
     word-wrap: break-word;
 }
 
-.calendar_item__note_content {
-    max-height: 3em;
-}
-
-.calendar_item__note_title {
-    max-height: 2em;
-}
-
 .calendar_item__form {
     position: absolute;
     top: 50%;

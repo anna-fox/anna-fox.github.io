@@ -203,7 +203,7 @@ $(function(){
         clear: function(){
             this.collection.off();
             this.$el.off();
-            this.$el.clear();
+            this.$el.empty();
         },
 
         _getEmptyDays: function(side) {
