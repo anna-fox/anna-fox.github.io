@@ -4,6 +4,7 @@
 
 .calendar__table {
     background-color: #fff;
+    max-width: 1200px;
 }
 
 .calendar__item {
