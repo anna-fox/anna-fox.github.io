@@ -30,7 +30,6 @@
 
 .calendar_item__note {
     min-height: 3em;
-    overflow: scroll;
 }
 
 .calendar_item__note_title,
